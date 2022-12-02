@@ -1,5 +1,5 @@
-function right() {
-  return <div>right</div>;
+function Right() {
+  return <div>Right</div>;
 }
 
-export default right;
+export default Right;

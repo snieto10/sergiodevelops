@@ -1,5 +1,15 @@
-function left() {
-  return <div>left</div>;
+import ProfilePicture from "../components/ProfilePicture";
+import Menu from "../components/Menu";
+
+function Left() {
+  return (
+    <>
+      <div className="grid_left">
+        <ProfilePicture />
+        <Menu />
+      </div>
+    </>
+  );
 }
 
-export default left;
+export default Left;
