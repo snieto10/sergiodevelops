@@ -1,5 +1,5 @@
 function Right() {
-  return <div>Right</div>;
+  return <div className="dis">Right</div>;
 }
 
 export default Right;
