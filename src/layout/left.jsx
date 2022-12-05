@@ -1,4 +1,5 @@
 import ProfilePicture from "../components/ProfilePicture";
+import ProfileText from "../components/ProfileText";
 import Menu from "../components/Menu";
 
 function Left() {
@@ -6,6 +7,7 @@ function Left() {
     <>
       <div className="grid_left">
         <ProfilePicture />
+        <ProfileText />
         <Menu />
       </div>
     </>

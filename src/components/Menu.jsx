@@ -8,35 +8,33 @@ function Menu() {
   return (
     <>
       <div className="container-flexStart menu_box">
-        <div className="container-flex menu_icon">
-          <img src={home} alt="home logo" />
-        </div>
-        <div className="container-flex menu_text">
-          <h3 className="menu_h3">HOME</h3>
-        </div>
-      </div>
-      <div className="container-flexStart menu_box">
-        <div className="container-flex menu_icon">
-          <img src={user} alt="skills" />
-        </div>
-        <div className="container-flex menu_text">
-          <h3 className="menu_h3">SKILLS</h3>
+        <div className="menu_button container-flex">
+          <div className="container-flex menu_icon">
+            <img className="icon_size" src={home} alt="home logo" />
+          </div>
+          <div className="container-flex menu_text">
+            <h3 className="menu_h3">HOME</h3>
+          </div>
         </div>
       </div>
       <div className="container-flexStart menu_box">
-        <div className="container-flex menu_icon">
-          <img src={aboutme} alt="home logo" />
-        </div>
-        <div className="container-flex menu_text">
-          <h3 className="menu_h3">ABOUT ME</h3>
+        <div className="menu_button container-flex">
+          <div className="container-flex menu_icon">
+            <img src={user} alt="skills" />
+          </div>
+          <div className="container-flex menu_text">
+            <h3 className="menu_h3">SKILLS</h3>
+          </div>
         </div>
       </div>
       <div className="container-flexStart menu_box">
-        <div className="container-flex menu_icon">
-          <img src={phone} alt="contact" />
-        </div>
-        <div className="container-flex menu_text">
-          <h3 className="menu_h3">CONTACT</h3>
+        <div className="menu_button container-flex">
+          <div className="container-flex menu_icon size_phone">
+            <img src={phone} alt="contact" />
+          </div>
+          <div className="container-flex menu_text">
+            <h3 className="menu_h3">CONTACT</h3>
+          </div>
         </div>
       </div>
     </>
