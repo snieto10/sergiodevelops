@@ -5,15 +5,19 @@ import comment from "../assets/icons/comment-solid.svg";
 import github from "../assets/icons/square-github.svg";
 import { useState } from "react";
 
-function Website1() {
+function Website1({ commentIsOpen }) {
   const [likes, setLikes] = useState(3);
-  const [text, setText] = useState(["Great Website", "Love the colors"]);
   const [likeIsDisabled, setLikeIsDisabled] = useState(false);
 
   const handleLike = () => {
     setLikes(likes + 1);
     setLikeIsDisabled(true);
   };
+
+  const handleComment = () => {
+    commentIsOpen(true);
+  };
+
   return (
     <>
       <div className="grid_block">
@@ -40,13 +44,18 @@ function Website1() {
             </button>
           </div>
           <div className="">
-            <div className="container-flex">
-              <img src={comment} className="icon" alt="" />
-              <h3 className="icon_text">{text.length}</h3>
+            <div className="container-flex relative">
+              <img
+                onClick={handleComment}
+                src={comment}
+                className="icon"
+                alt=""
+              />
+              <h3 className="icon_text">4</h3>
             </div>
           </div>
           <div className="">
-            <a href="https://youtube.com/" target="_blank">
+            <a href="https://youtube.com/" target="_blank" rel="noreferrer">
               <div className="container-flex">
                 <img src={github} className="icon" alt="" />
                 <p className="icon_text">View Code</p>
