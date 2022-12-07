@@ -280,26 +280,48 @@ a {
 
 /* FORM */
 
-form {
-  width: 400px;
-  background-color: lightgray;
-  padding: 3rem;
+input {
+  outline: none;
+  border: 0;
+  height: 30px;
+  font-size: 1.6rem;
+  padding: 0 1rem;
   border-radius: 10px;
 }
 
-input {
-  outline: none;
-  border: none;
-  height: 4rem;
-  font-size: 2rem;
-  padding: 0;
-}
-
 .form_btn {
-  border: none;
   background: blue;
-  height: 4rem;
+  height: 40px;
   margin-top: 0;
   padding: 0 3rem;
   font-size: 2rem;
+  border: none;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.input2 {
+  border: 3px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.comment-text {
+  border: 1px solid black;
+  width: 60%;
+  margin: 30px 0 0 0;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.6rem;
+  justify-content: space-between;
+}
+
+.closeBox {
+  align-self: flex-end;
+}
+
+.icon2 {
+  margin-left: 10px;
 }

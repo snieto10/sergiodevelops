@@ -23,9 +23,14 @@ function App() {
     setOpen(isOpen);
   };
 
+  const addText = (message) => {
+    let text = [message, ...text1];
+    setText1(text);
+  };
+
   return (
     <>
-      {open && <Comments commentClosed={commentClosed} />}
+      {open && <Comments text1={text1} commentClosed={commentClosed} />}
       <div className="grid relative">
         <Left />
         <Center commentIsOpen={commentIsOpen} />
