@@ -28,9 +28,22 @@ function App() {
     setText1(text);
   };
 
+  const deleteText = (message) => {
+    let arr = [...text1];
+    let result = arr.filter((string) => string !== message);
+    setText1(result);
+  };
+
   return (
     <>
-      {open && <Comments text1={text1} commentClosed={commentClosed} />}
+      {open && (
+        <Comments
+          text1={text1}
+          commentClosed={commentClosed}
+          addText={addText}
+          deleteText={deleteText}
+        />
+      )}
       <div className="grid relative">
         <Left />
         <Center commentIsOpen={commentIsOpen} />

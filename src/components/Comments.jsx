@@ -4,8 +4,10 @@ import eraser from "../assets/icons/eraser.svg";
 import edit from "../assets/icons/edit.svg";
 import { useState } from "react";
 
-function Comments({ commentClosed, text1 }) {
-  let [text, setText] = useState("");
+function Comments({ commentClosed, text1, addText, deleteText }) {
+  const [text, setText] = useState("");
+  const [alert, setAlert] = useState("");
+  const [btnDisabled, SetBtnDisabled] = useState("");
 
   const closeWindows = () => {
     commentClosed(false);
@@ -13,10 +15,21 @@ function Comments({ commentClosed, text1 }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    addText(text);
+
+    setText("");
   };
 
   const handleTextChange = (e) => {
     setText(e.target.value);
+  };
+
+  const handleDelete = (textt) => {
+    deleteText(textt);
+  };
+
+  const handleEdit = (textt) => {
+    console.log(textt);
   };
 
   return (
@@ -44,15 +57,25 @@ function Comments({ commentClosed, text1 }) {
               </div>
             </div>
           </form>
-          {text1.map((text) => (
+          {text1.map((textt) => (
             <div
               key={Math.random() * Math.random()}
               className="container-flex comment-text"
             >
-              <div>{text}</div>
+              <div>{textt}</div>
               <div>
-                <img src={edit} className="icon" alt="" />
-                <img src={close} className="icon icon2" alt="" />
+                <img
+                  onClick={() => handleEdit(textt)}
+                  src={edit}
+                  className="icon"
+                  alt=""
+                />
+                <img
+                  onClick={() => handleDelete(textt)}
+                  src={close}
+                  className="icon icon2"
+                  alt=""
+                />
               </div>
             </div>
           ))}
