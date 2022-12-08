@@ -34,6 +34,15 @@ function App() {
     setText1(result);
   };
 
+  const editArr = (initialArr, editedArr) => {
+    let arr = [...text1];
+    if (arr.includes(initialArr)) {
+      let index = arr.findIndex((f) => f === initialArr);
+      arr[index] = editedArr;
+      setText1(arr);
+    }
+  };
+
   return (
     <>
       {open && (
@@ -42,6 +51,7 @@ function App() {
           commentClosed={commentClosed}
           addText={addText}
           deleteText={deleteText}
+          editArr={editArr}
         />
       )}
       <div className="grid relative">

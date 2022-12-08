@@ -4,10 +4,11 @@ import eraser from "../assets/icons/eraser.svg";
 import edit from "../assets/icons/edit.svg";
 import { useState } from "react";
 
-function Comments({ commentClosed, text1, addText, deleteText }) {
+function Comments({ commentClosed, text1, addText, deleteText, editArr }) {
   const [text, setText] = useState("");
+  const [editText, setEditText] = useState("");
   const [alert, setAlert] = useState("");
-  const [btnDisabled, SetBtnDisabled] = useState("");
+  const [btnDisabled, SetBtnDisabled] = useState(true);
 
   const closeWindows = () => {
     commentClosed(false);
@@ -15,13 +16,24 @@ function Comments({ commentClosed, text1, addText, deleteText }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addText(text);
+
+    if (editText) editArr(editText, text);
+    else addText(text);
 
     setText("");
+    setEditText("");
   };
 
   const handleTextChange = (e) => {
     setText(e.target.value);
+    if (text !== "" && text.trim().length < 7) {
+      setAlert("Text must be have at least 8 characters");
+      SetBtnDisabled(true);
+    }
+    if (text.trim().length > 7) {
+      setAlert("");
+      SetBtnDisabled(false);
+    }
   };
 
   const handleDelete = (textt) => {
@@ -29,7 +41,8 @@ function Comments({ commentClosed, text1, addText, deleteText }) {
   };
 
   const handleEdit = (textt) => {
-    console.log(textt);
+    setText(textt);
+    setEditText(textt);
   };
 
   return (
@@ -51,11 +64,16 @@ function Comments({ commentClosed, text1, addText, deleteText }) {
                 />
               </div>
               <div className="inline-block">
-                <button type="submit" className="form_btn">
+                <button
+                  disabled={btnDisabled}
+                  type="submit"
+                  className="form_btn"
+                >
                   SUBMIT
                 </button>
               </div>
             </div>
+            <h5>{alert}</h5>
           </form>
           {text1.map((textt) => (
             <div
