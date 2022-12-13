@@ -1,5 +1,11 @@
-const myArray = ["a", "b", "c", "d", "e"];
+let a = 2;
+let b = 2;
+let c = 3;
 
-const result = myArray.filter((string) => string !== "c");
+function isTriangle(a, b, c) {
+  let number = Math.max(a, b, c);
+  if (number < a + b) return true;
+  else return false;
+}
 
-console.log(result);
+isTriangle(a, b, c);
